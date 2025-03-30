@@ -1,0 +1,110 @@
+body {
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    font-family: 'Tajawal', sans-serif;
+}
+
+button {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .cart-container {
+        width: 90%;
+        right: 5%;
+    }
+
+    .cart-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .product-img {
+        height: 150px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+    }
+
+    .cart-container {
+        max-height: 300px;
+    }
+
+    .product-img {
+        height: 120px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+
+    footer p {
+        font-size: 0.7rem;
+    }
+}
