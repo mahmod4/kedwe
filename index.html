@@ -492,6 +492,11 @@
             .map-container iframe {
                 height: 200px; /* Further reduced map height */
             }
+
+            .col-sm-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
         }
 
         .cart-container {
@@ -1362,7 +1367,12 @@
             if (existingProduct) {
                 existingProduct.quantity += 1;
             } else {
-                cart.push({ ...product, quantity: 1 });
+                const isCheese = product.category === "ألبان" && product.name.includes("جبنة");
+                cart.push({ 
+                    ...product, 
+                    quantity: 1, 
+                    weight: isCheese ? "1 كجم" : undefined // Default weight for cheese
+                });
             }
             updateCartUI();
             showAddToCartAnimation(product.image);
@@ -1390,12 +1400,25 @@
             cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
 
             cart.forEach(item => {
+                const isCheese = item.category === "ألبان" && item.name.includes("جبنة");
+                const pricePerKg = parseFloat(item.price.split(' ')[0]); // Extract price as a number
+                const weightFactor = item.weight === "ربع كجم" ? 0.25 : item.weight === "نصف كجم" ? 0.5 : 1;
+                const calculatedPrice = isCheese ? (pricePerKg * weightFactor).toFixed(2) : item.price;
+
                 const cartItem = `
                     <div class="cart-item">
                         <img src="${item.image}" alt="${item.alt}">
                         <div>
                             <p>${item.name}</p>
                             <p>الكمية: ${item.quantity}</p>
+                            ${isCheese ? `
+                                <select class="form-select mt-2" onchange="updateWeight('${item.name}', this.value)">
+                                    <option value="ربع كجم" ${item.weight === "ربع كجم" ? "selected" : ""}>ربع كجم</option>
+                                    <option value="نصف كجم" ${item.weight === "نصف كجم" ? "selected" : ""}>نصف كجم</option>
+                                    <option value="1 كجم" ${item.weight === "1 كجم" ? "selected" : ""}>1 كجم</option>
+                                </select>
+                            ` : ''}
+                            <p class="mt-2">السعر: ${calculatedPrice} ج</p>
                             <textarea class="form-control mt-2" placeholder="أضف ملاحظاتك..." data-product="${item.name}" oninput="updateNotes('${item.name}', this.value)"></textarea>
                         </div>
                         <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.name}')">إزالة</button>
@@ -1403,6 +1426,14 @@
                 `;
                 cartContainer.innerHTML += cartItem;
             });
+        }
+
+        function updateWeight(productName, weight) {
+            const product = cart.find(item => item.name === productName);
+            if (product) {
+                product.weight = weight;
+            }
+            updateCartUI(); // Recalculate and update the UI
         }
 
         function updateNotes(productName, note) {
@@ -1444,6 +1475,9 @@
             let message = 'مرحباً، أريد إتمام الطلب التالي:\n';
             cart.forEach(item => {
                 message += `- ${item.name} (الكمية: ${item.quantity})\n`;
+                if (item.weight) {
+                    message += `  الوزن: ${item.weight}\n`;
+                }
                 if (item.note) {
                     message += `  ملاحظة: ${item.note}\n`;
                 }
