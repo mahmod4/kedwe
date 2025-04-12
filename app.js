@@ -762,17 +762,38 @@ function initFishBackground() {
 }
 
 // ==================================
-// تهيئة الصفحات عند التحميل
+// تهيئة الصفحات عند التحميل ومستمع التخزين
 // ==================================
 document.addEventListener('DOMContentLoaded', function() {
 
     // تهيئة مشتركة
     try {
-        products = JSON.parse(localStorage.getItem('products')) || []; // Ensure products are loaded
-        cart = JSON.parse(localStorage.getItem('cart')) || []; // Ensure cart is loaded
+        const storedProducts = localStorage.getItem('products');
+        if (storedProducts) {
+            const parsedProducts = JSON.parse(storedProducts);
+            if (Array.isArray(parsedProducts) && parsedProducts.length > 0) {
+                products = parsedProducts;
+            } else {
+                console.warn("localStorage products data invalid or empty, using defaults.");
+                products = [...DEFAULT_PRODUCTS];
+            }
+        } else {
+            products = [...DEFAULT_PRODUCTS];
+        }
     } catch (e) {
-        console.error("Error loading data from localStorage:", e);
-        products = []; // Reset to default if localStorage is corrupt
+        console.error("Error parsing localStorage products, using defaults:", e);
+        products = [...DEFAULT_PRODUCTS];
+    }
+
+    try {
+        cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (!Array.isArray(cart)) {
+            console.warn("localStorage cart data invalid, resetting cart.");
+            cart = [];
+            saveCart();
+        }
+    } catch (e) {
+        console.error("Error parsing localStorage cart, resetting cart:", e);
         cart = [];
     }
 
@@ -818,66 +839,97 @@ document.addEventListener('DOMContentLoaded', function() {
         const categoryButtons = document.querySelectorAll('.categories button');
         categoryButtons.forEach(button => {
             button.addEventListener('click', function() {
-                 // Update active state
                  categoryButtons.forEach(btn => btn.classList.remove('active', 'btn-primary'));
                  categoryButtons.forEach(btn => btn.classList.add('btn-outline-primary'));
                  this.classList.add('active', 'btn-primary');
                  this.classList.remove('btn-outline-primary');
 
-                 const category = this.getAttribute('data-category'); // Rely on data-category being present
+                 const category = this.getAttribute('data-category');
                  const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
                  filterAndDisplayProducts(searchTerm, category, 1);
             });
-            // Ensure data-category exists (moved adding this to index.html)
-            // if (!button.hasAttribute('data-category')) {
-            //     console.warn('Category button missing data-category:', button);
-            // }
         });
     }
 
     // تهيئة لوحة التحكم (admin-dashboard.html)
     if (adminProductsContainer) {
-        displayAdminProducts(); // Display all products initially
-
-        // ربط زر الإضافة بدالة الإعداد
+        displayAdminProducts();
         const addButton = document.querySelector('button[data-bs-target="#addProductModal"]');
         if (addButton) {
             addButton.onclick = setupAddModal;
         }
-
-        // ربط زر الحفظ بدالة المعالجة
         const saveButton = document.getElementById('saveProductButton');
         if (saveButton) {
             saveButton.onclick = handleFormSubmit;
         }
-
-        // ربط زر المزامنة
         const syncButton = document.getElementById('syncButton');
         if (syncButton) {
             syncButton.onclick = syncWithMainSite;
         }
-
-        // ربط حدث البحث في لوحة التحكم
         const adminSearchInput = document.getElementById('adminSearchInput');
-        const adminSearchButton = document.getElementById('adminSearchButton');
-
         if (adminSearchInput) {
             adminSearchInput.addEventListener('input', filterAdminProducts);
         }
-        // Optional: Trigger search on button click as well
-        // if (adminSearchButton) {
-        //     adminSearchButton.addEventListener('click', filterAdminProducts);
-        // }
-
-        // ربط حدث تغيير خانة الاختيار "عرض خاص" لإظهار/إخفاء حقل التاريخ
         const isOfferCheckbox = document.getElementById('isOfferCheck');
         const offerEndDateGroup = document.getElementById('offerEndDateGroup');
         if (isOfferCheckbox && offerEndDateGroup) {
             isOfferCheckbox.addEventListener('change', function() {
                 offerEndDateGroup.style.display = this.checked ? 'block' : 'none';
-                // Make end date required only if checkbox is checked
                 document.getElementById('offerEndDate').required = this.checked;
             });
+        }
+    }
+});
+
+// مستمع حدث التخزين لتحديث الموقع الرئيسي تلقائياً
+window.addEventListener('storage', function(event) {
+    if (event.key === 'products') {
+        console.log('Storage event detected for products key.');
+        try {
+            const updatedProducts = JSON.parse(event.newValue);
+            if (Array.isArray(updatedProducts)) {
+                products = updatedProducts; // تحديث المصفوفة الرئيسية
+                console.log('Products array updated from storage event.');
+
+                // إذا كنا في الموقع الرئيسي، أعد عرض المنتجات
+                const productsContainer = document.getElementById('productsContainer');
+                if (productsContainer) {
+                    console.log('Products container found, re-rendering main site products...');
+                    // استخدام البحث والتصنيف الحالي لإعادة العرض
+                    const searchInput = document.getElementById('searchInput');
+                    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+                    const activeCategoryButton = document.querySelector('.categories .btn.active');
+                    const currentCategory = activeCategoryButton ? activeCategoryButton.getAttribute('data-category') : 'all';
+                    filterAndDisplayProducts(searchTerm, currentCategory, 1); // إعادة العرض من الصفحة الأولى
+                }
+                 // قد تحتاج أيضًا إلى تحديث عرض لوحة التحكم إذا كانت مفتوحة
+                 const adminProductsContainer = document.getElementById('adminProductsContainer');
+                 if (adminProductsContainer) {
+                     console.log('Admin products container found, re-rendering admin products...');
+                     const adminSearchInput = document.getElementById('adminSearchInput');
+                     const adminSearchTerm = adminSearchInput ? adminSearchInput.value.toLowerCase().trim() : '';
+                     filterAdminProducts(); // استخدم دالة الفلترة الخاصة بالإدارة
+                 }
+
+            } else {
+                // إذا كانت القيمة الجديدة غير صالحة، استخدم الافتراضية كإجراء احترازي
+                console.warn('Invalid data received from storage event for products, using defaults.');
+                products = [...DEFAULT_PRODUCTS];
+                 // إعادة عرض المنتجات الافتراضية
+                 const productsContainer = document.getElementById('productsContainer');
+                 if (productsContainer) filterAndDisplayProducts();
+                 const adminProductsContainer = document.getElementById('adminProductsContainer');
+                 if (adminProductsContainer) displayAdminProducts();
+            }
+        } catch (e) {
+            console.error("Error processing storage event:", e);
+            // في حالة الخطأ، استخدم الافتراضية
+            products = [...DEFAULT_PRODUCTS];
+             // إعادة عرض المنتجات الافتراضية
+             const productsContainer = document.getElementById('productsContainer');
+             if (productsContainer) filterAndDisplayProducts();
+             const adminProductsContainer = document.getElementById('adminProductsContainer');
+             if (adminProductsContainer) displayAdminProducts();
         }
     }
 }); 
