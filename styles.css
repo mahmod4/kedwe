@@ -238,6 +238,18 @@ body {
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* تنسيق مساحة الفارغة عند عدم وجود صورة */
+.product-img[src="images/placeholder.jpg"] {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    font-style: italic;
 }
 
 .whatsapp-btn {
@@ -730,92 +742,21 @@ h1, h2, h3 {
     }
 }
 
-/* أنماط لوحة التحكم */
-.admin-dashboard {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.admin-dashboard h1 {
-    color: #007bff;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.admin-dashboard .btn {
-    margin-bottom: 10px;
-}
-
-.admin-dashboard .card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    background-color: white;
-}
-
-.admin-dashboard .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
-
-.admin-dashboard .product-img {
-    height: 150px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.admin-dashboard .modal-header {
-    background-color: #007bff;
-    color: white;
-}
-
-.admin-dashboard .modal-footer .btn {
-    min-width: 100px;
-}
-
-.admin-dashboard .modal-footer .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.admin-dashboard .modal-footer .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-}
-
-.admin-dashboard-card.is-offer {
-    border: 2px solid #ffc107; /* Add a yellow border for offers */
-}
-
-.admin-dashboard-card.is-offer-expired {
-    border: 2px solid #6c757d; /* Gray border for expired offers */
-    opacity: 0.7; /* Make expired offers slightly faded */
-}
-
-.offer-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px; /* Position badge top-left */
-    font-size: 0.8rem;
-    padding: 0.3em 0.6em;
-}
-
-/* أنماط الموقع الرئيسي */
-.main-site-card.main-is-offer {
-     box-shadow: 0 0 15px rgba(220, 53, 69, 0.5); /* Add a red glow for offers */
-     border-color: #dc3545;
-}
-
-.offer-badge-main {
-    position: absolute;
-    top: 5px;
-    right: 5px; /* Position badge top-right */
+/* Admin Link Styles */
+.admin-link {
+    color: #6c757d;
+    text-decoration: none;
     font-size: 0.9rem;
-    padding: 0.4em 0.7em;
-    transform: rotate(15deg);
+    transition: color 0.2s;
+}
+
+.admin-link:hover {
+    color: #4e2a84;
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-align: center;
 }
