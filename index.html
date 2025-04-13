@@ -2,14 +2,6 @@
 <html lang="ar" dir="rtl">
 <head>
 
-
-
-
-
-
-
-
-    
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ59E35Q03"></script>
 <script>
@@ -23,12 +15,6 @@
 
 
 
-
-
-
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ماركت الخديوي - سوبر ماركت شامل في مصر</title>
@@ -36,13 +22,13 @@
     <meta name="keywords" content="سوبر ماركت, منتجات طازجة, خضروات, فواكه, لحوم, ألبان, مشروبات, توصيل سريع, عروض خاصة, تسوق أونلاين, بقالة, منتجات طبيعية, توصيل للمنازل, تسوق في مصر, ماركت الخديوي, أرز, زيت, عدس, عسل, جبنة, مكرونة, شاي, عصير, سكر, دقيق, ملح, خل">
     <meta name="author" content="الخديوي">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://alkhedewy.com" />
+    <link rel="canonical" href="https://elkedawe.netlify.app/" />
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="الخديوي - سوبر ماركت شامل في مصر">
     <meta property="og:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta property="og:image" content="https://alkhedewy.com/images/logo.png">
-    <meta property="og:url" content="https://alkhedewy.com">
+    <meta property="og:image" content="https://elkedawe.netlify.app/images/logo.png">
+    <meta property="og:url" content="https://elkedawe.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_EG">
     
@@ -50,7 +36,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="الخديوي - سوبر ماركت شامل في مصر">
     <meta name="twitter:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta name="twitter:image" content="https://alkhedewy.com/images/logo.png">
+    <meta name="twitter:image" content="https://elkedawe.netlify.app/images/logo.png">
     
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -280,6 +266,17 @@
 
     <!-- Notification container -->
     <div id="notificationContainer" class="notification-container"></div>
+
+    <!-- مراقبة تغييرات البيانات من لوحة التحكم -->
+    <script>
+        // مراقبة تغييرات localStorage للمنتجات
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'productsData' && e.newValue) {
+                console.log('تم تحديث بيانات المنتجات');
+                location.reload(); // إعادة تحميل الصفحة لعكس التغييرات
+            }
+        });
+    </script>
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
