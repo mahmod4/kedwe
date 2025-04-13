@@ -1,290 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ماركت الخديوي - سوبر ماركت شامل في مصر</title>
-    <meta name="description" content="الخديوي - أفضل سوبر ماركت شامل في مصر. منتجات طازجة، أسعار منافسة، توصيل سريع. طلبك بين يديك في أسرع وقت">
-    <meta name="keywords" content="سوبر ماركت, منتجات طازجة, خضروات, فواكه, لحوم, ألبان, مشروبات, توصيل سريع, عروض خاصة, تسوق أونلاين, بقالة, منتجات طبيعية, توصيل للمنازل, تسوق في مصر, ماركت الخديوي, أرز, زيت, عدس, عسل, جبنة, مكرونة, شاي, عصير, سكر, دقيق, ملح, خل">
-    <meta name="author" content="الخديوي">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://alkhedewy.com" />
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="الخديوي - سوبر ماركت شامل في مصر">
-    <meta property="og:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta property="og:image" content="https://alkhedewy.com/images/logo.png">
-    <meta property="og:url" content="https://alkhedewy.com">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_EG">
-    
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="الخديوي - سوبر ماركت شامل في مصر">
-    <meta name="twitter:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta name="twitter:image" content="https://alkhedewy.com/images/logo.png">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- زر فتح/إغلاق سلة المشتريات -->
-    <button class="cart-toggle" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count" id="cartCount">0</span>
-    </button>
-
-    <!-- سلة المشتريات -->
-    <div class="cart-container" id="cartContainer">
-        <div class="cart-header">سلة المشتريات</div>
-        <div class="cart-items" id="cartItems"></div>
-        <div class="cart-footer">
-            <button onclick="checkout()">إتمام الشراء</button>
-        </div>
-    </div>
-
-    <!-- خلفية الأسماك المتحركة -->
-    <div class="fish-container" id="fishContainer"></div>
-
-    <!-- المسطح المائي مع الدلافين -->
-    <div class="water-surface">
-        <div class="water-wave"></div>
-        <div class="dolphin" style="left:10%; animation-delay:0s;"></div>
-        <div class="dolphin" style="left:30%; animation-delay:2s;"></div>
-        <div class="dolphin" style="left:50%; animation-delay:4s;"></div>
-    </div>
-
-    <!-- شريط التنقل -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo.png" alt="الخديوي" style="height: 50px; margin-right: 10px;">
-                الخديوي
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#products">المنتجات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#special-offers">العروض الخاصة</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location">موقعنا</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- مسار التنقل -->
-    <nav aria-label="breadcrumb" class="container py-2">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">المنتجات</li>
-        </ol>
-    </nav>
-
-    <!-- المحتوى الرئيسي -->
-    <div class="main-content">
-        <!-- مساحة إعلانية أعلى الصفحة -->
-        <div class="ad-space mb-4 text-center">
-            <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-                <img src="images/ads/ad-top.jpg" alt="إعلان أعلى الصفحة" class="img-fluid rounded">
-            </a>
-        </div>
-        <!-- شريط البحث -->
-        <div class="search-box">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="ابحث عن منتج..." id="searchInput" aria-label="بحث عن منتجات">
-                <button class="btn btn-primary" type="button" aria-label="بحث">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- قسم المنتجات -->
-        <section id="products" class="py-5">
-            <div class="container">
-                <h1 class="text-center mb-4">الخديوي - سوبر ماركت شامل</h1>
-                <h1 class="text-center mb-4">🛍️ منتجاتنا</h1>
-                <div id="products"></div>
-
-                <script>
-                  fetch("http://localhost:1337/api/products")
-                    .then(response => response.json())
-                    .then(data => {
-                      const container = document.getElementById("products");
-                      data.data.forEach(product => {
-                        const item = document.createElement("div");
-                        item.innerHTML = `
-                          <h2>${product.name}</h2>
-                          <p>💰 السعر: ${product.prise} ريال</p>
-                          <p>📦 الفئة: ${product.category}</p>
-                          <hr />
-                        `;
-                        container.appendChild(item);
-                      });
-                    })
-                    .catch(err => {
-                      console.error("🚨 في مشكلة في الاتصال بـ Strapi:", err);
-                    });
-                </script>
-                <!-- مساحة إعلانية بين المنتجات -->
-                <div class="ad-space my-4 text-center">
-                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-                        <img src="images/ads/ad-middle.jpg" alt="إعلان بين المنتجات" class="img-fluid rounded">
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم العروض الخاصة -->
-        <section id="special-offers" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center mb-4">العروض الخاصة</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="images/offer1.jpg" class="card-img-top" alt="عرض خاص 1">
-                            <div class="card-body">
-                                <h5 class="card-title">عرض خاص 1</h5>
-                                <p class="card-text">خصم 20% على جميع منتجات الألبان.</p>
-                                <a href="https://wa.me/201003316735?text=مرحباً، أريد الاستفادة من عرض خاص 1" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="images/offer2.jpg" class="card-img-top" alt="عرض خاص 2">
-                            <div class="card-body">
-                                <h5 class="card-title">عرض خاص 2</h5>
-                                <p class="card-text">اشترِ 3 كجم من الفواكه واحصل على 1 كجم مجاناً.</p>
-                                <a href="https://wa.me/201003316735?text=مرحباً، أريد الاستفادة من عرض خاص 2" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="images/offer3.jpg" class="card-img-top" alt="عرض خاص 3">
-                            <div class="card-body">
-                                <h5 class="card-title">عرض خاص 3</h5>
-                                <p class="card-text">خصم 15% على جميع أنواع اللحوم الطازجة.</p>
-                                <a href="https://wa.me/201003316735?text=مرحباً، أريد الاستفادة من عرض خاص 3" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                                    <i class="fab fa-whatsapp"></i> طلب عبر واتساب
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- قسم الموقع -->
-        <section id="location" class="py-5 bg-light">
-            <div class="container">
-                <!-- مساحة إعلانية أسفل الصفحة -->
-                <div class="ad-space mb-4 text-center">
-                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">
-                        <img src="images/ads/ad-bottom.jpg" alt="إعلان أسفل الصفحة" class="img-fluid rounded">
-                    </a>
-                </div>
-                <h2 class="text-center mb-4">موقع السوبر ماركت</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="map-container shadow rounded">
-                            <iframe 
-                                src="https://maps.app.goo.gl/bBEDm4wSDmnGn4jf8"
-                                width="100%" 
-                                height="400" 
-                                style="border:0;" 
-                                allowfullscreen="" 
-                                loading="lazy"
-                                title="موقع سوبر ماركت الخديوي على خرائط جوجل">
-                            </iframe>
-                            <p class="text-center mt-2">
-                                <a href="https://maps.app.goo.gl/bBEDm4wSDmnGn4jf8" target="_blank" rel="noopener noreferrer">
-                                    افتح الموقع في خرائط جوجل
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="contact-info">
-                            <h3>معلومات الاتصال</h3>
-                            <p><i class="fas fa-map-marker-alt"></i>  العنوان
-                                بني سويف / تقاطع الثانويه العسكريه / شارع الروضه - برج الخديوي </p>
-                            <p><i class="fas fa-phone"></i> الهاتف: <a href="tel:+201100099333">201100099333</a></p>
-                            <p><i class="fas fa-clock"></i> مواعيد العمل: 24س</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- الفوتر -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.facebook.com/Al.Khediwe.Market/?locale=ar_AR" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/201003316735" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <!-- Removed "جميع الحقوق محفوظة" section -->
-        </div>
-    </footer>
-
-    <!-- Notification container -->
-    <div id="notificationContainer" class="notification-container"></div>
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "الخديوي",
-      "image": "https://alkhedewy.com/images/logo.png",
-      "@id": "https://alkhedewy.com",
-      "url": "https://alkhedewy.com",
-      "telephone": "+201100099333.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "خلف المستشفى العام بعد الصحة النفسية",
-        "addressLocality": "بني سويف",
-        "addressRegion": "المنطقة",
-        "postalCode": "61112",
-        "addressCountry": "EG"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "29.0650348",
-        "longitude": "31.1028093"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "10:00",
-        "closes": "18:00"
-      },
-      "priceRange": "$$"
-    }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
