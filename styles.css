@@ -38,18 +38,6 @@ footer p {
         padding: 0 15px;
     }
 
-    .navbar-brand {
-        font-size: 1.5rem;
-    }
-
-    .navbar-nav .nav-link {
-        font-size: 0.9rem;
-    }
-
-    .card {
-        margin-bottom: 15px;
-    }
-
     .card-title {
         font-size: 1rem;
     }
@@ -58,18 +46,9 @@ footer p {
         font-size: 0.9rem;
     }
 
-    .product-img {
-        height: 120px;
-    }
-
-    .contact-info {
-        padding: 15px;
-    }
-
     .cart-container {
         width: 90%;
         right: 5%;
-        max-height: 300px;
     }
 
     .cart-toggle {
@@ -83,53 +62,24 @@ footer p {
         font-size: 0.7rem;
     }
 
-    .whatsapp-btn {
-        padding: 6px 15px;
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
         font-size: 0.9rem;
     }
 
-    .map-container iframe {
-        height: 300px;
+    .product-img {
+        height: 150px;
     }
 
-    .breadcrumb {
-        padding: 0.5rem 0.75rem;
-    }
-
-    .breadcrumb-item.active {
-        font-size: 0.9rem;
-    }
-
-    .dolphin {
-        width: 70px;
-        height: 35px;
-    }
-
-    .fish {
-        width: 60px;
-        height: 30px;
-    }
-
-    .bubble {
-        width: 10px;
-        height: 10px;
-    }
-
-    .cart-item img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .cart-footer button {
-        padding: 8px 15px;
+    footer p {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 576px) {
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-
     .card-title {
         font-size: 0.9rem;
     }
@@ -138,33 +88,24 @@ footer p {
         font-size: 0.8rem;
     }
 
-    .card-body h3 {
-        font-size: 1rem;
-    }
-
-    .breadcrumb-item.active {
-        font-size: 0.8rem;
-    }
-
-    .whatsapp-btn {
-        font-size: 0.8rem;
-    }
-
-    .contact-info p {
-        font-size: 0.9rem;
-    }
-
-    .map-container iframe {
-        height: 200px;
-    }
-
     .cart-container {
-        width: 100%;
+        max-height: 300px;
     }
 
-    .col-sm-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .product-img {
+        height: 120px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.8rem;
+    }
+
+    footer p {
+        font-size: 0.7rem;
     }
 }
 
@@ -297,18 +238,6 @@ body {
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: #f9f9f9;
-}
-
-/* تنسيق مساحة الفارغة عند عدم وجود صورة */
-.product-img[src="images/placeholder.jpg"] {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #999;
-    font-style: italic;
 }
 
 .whatsapp-btn {
@@ -497,6 +426,154 @@ h1, h2, h3 {
     }
 }
 
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .product-img {
+        height: 150px;
+    }
+
+    .contact-info {
+        padding: 15px;
+    }
+
+    .breadcrumb {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .breadcrumb-item.active {
+        font-size: 0.9rem;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .whatsapp-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+
+    .dolphin {
+        width: 70px;
+        height: 35px;
+    }
+
+    .fish {
+        width: 60px;
+        height: 30px;
+    }
+
+    .bubble {
+        width: 10px;
+        height: 10px;
+    }
+
+    .product-img {
+        height: 120px; /* Adjusted for smaller screens */
+    }
+
+    .card {
+        margin-bottom: 10px; /* Reduced margin for smaller screens */
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem; /* Adjusted font size for better readability */
+    }
+
+    .breadcrumb {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .breadcrumb-item.active {
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+
+    .map-container iframe {
+        height: 250px; /* Adjusted map height for smaller screens */
+    }
+
+    .cart-container {
+        width: 100%; /* Full width for mobile */
+        max-height: 300px; /* Reduced height */
+    }
+
+    .cart-item img {
+        width: 40px; /* Smaller image size */
+        height: 40px;
+    }
+
+    .cart-footer button {
+        padding: 8px 15px; /* Adjusted button size */
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .card-body h3 {
+        font-size: 1rem;
+    }
+
+    .breadcrumb-item.active {
+        font-size: 0.8rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 0.8rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .map-container iframe {
+        height: 250px;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .breadcrumb-item.active {
+        font-size: 0.8rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 0.8rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .map-container iframe {
+        height: 200px; /* Further reduced map height */
+    }
+
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
 .cart-container {
     position: fixed;
     top: 20px;
@@ -651,23 +728,4 @@ h1, h2, h3 {
         opacity: 0;
         transform: translateY(-20px);
     }
-}
-
-/* Admin Link Styles */
-.admin-link {
-    color: #6c757d;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-}
-
-.admin-link:hover {
-    color: #4e2a84;
-    text-decoration: underline;
-}
-
-.copyright {
-    font-size: 0.9rem;
-    color: #6c757d;
-    text-align: center;
 }
