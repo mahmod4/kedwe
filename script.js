@@ -1,11 +1,18 @@
 // بيانات المنتجات
-let products = [
+const products = [
     {
         name: "رز_الضحي",
         price: "15 ج/كجم",
         image: "images/رز_الضحي.jpg",
         category: "بقوليات",
         alt: "أرز مصري عالي الجودة من ماركت الخديوي"
+    },
+    {
+        name: "زيت ",
+        price: "50 ج/لتر",
+        image: "images/2زيت.jpg",
+        category: "زيوت",
+        alt: "زيت عباد الشمس نقي من ماركت الخديوي"
     },
     {
         name: "عدس أصفر",
@@ -15,9 +22,23 @@ let products = [
         alt: "عدس أصفر عالي الجودة من ماركت الخديوي"
     },
     {
+        name: "زيت زيتون بكر",
+        price: "100 ج/لتر",
+        image: "images/زيت_زيتون.jpg",
+        category: "زيوت",
+        alt: "زيت زيتون بكر نقي من ماركت الخديوي"
+    },
+    {
+        name: "بيض بلدي",
+        price: "2 ج/بيضة",
+        image: "images/بيض.jpg",
+        category: "ألبان",
+        alt: "بيض بلدي طازج من ماركت الخديوي"
+    },
+    {
         name: "عسل نحل طبيعي",
         price: "150 ج/كجم",
-        image: "images/عسل_نحل.jpg",
+        image: "images/عسل.jpg",
         category: "منتجات طبيعية",
         alt: "عسل نحل طبيعي من ماركت الخديوي"
     },
@@ -36,6 +57,13 @@ let products = [
         alt: "عصير برتقال طبيعي من ماركت الخديوي"
     },
     {
+        name: "زيت جوز الهند",
+        price: "120 ج/لتر",
+        image: "images/زيت_جوز_الهند.jpg",
+        category: "زيوت",
+        alt: "زيت جوز الهند نقي من ماركت الخديوي"
+    },
+    {
         name: "سكر أبيض",
         price: "10 ج/كجم",
         image: "images/سكر.jpg",
@@ -48,6 +76,62 @@ let products = [
         image: "images/دقيق.jpg",
         category: "بقالة",
         alt: "دقيق فاخر عالي الجودة من ماركت الخديوي"
+    },
+    {
+        name: "مكرونة سباجيتي",
+        price: "15 ج/علبة",
+        image: "images/مكرونة.jpg",
+        category: "بقالة",
+        alt: "مكرونة سباجيتي طازجة من ماركت الخديوي"
+    },
+    {
+        name: "شاي أسود",
+        price: "25 ج/علبة",
+        image: "images/شاي_أسود.jpg",
+        category: "مشروبات",
+        alt: "شاي أسود عالي الجودة من ماركت الخديوي"
+    },
+    {
+        name: "ملح طعام",
+        price: "5 ج/كجم",
+        image: "images/ملح.jpg",
+        category: "بقالة",
+        alt: "ملح طعام نقي من ماركت الخديوي"
+    },
+    {
+        name: "خل أبيض",
+        price: "8 ج/لتر",
+        image: "images/خل.jpg",
+        category: "بقالة",
+        alt: "خل أبيض نقي من ماركت الخديوي"
+    },
+    {
+        name: "عسل أسود",
+        price: "20 ج/كجم",
+        image: "images/عسل_أسود.jpg",
+        category: "منتجات طبيعية",
+        alt: "عسل أسود طبيعي من ماركت الخديوي"
+    },
+    {
+        name: "زيت ذرة",
+        price: "60 ج/لتر",
+        image: "images/زيت_ذرة.jpg",
+        category: "زيوت",
+        alt: "زيت ذرة نقي من ماركت الخديوي"
+    },
+    {
+        name: "عدس بني",
+        price: "18 ج/كجم",
+        image: "images/عدس_بني.jpg",
+        category: "بقوليات",
+        alt: "عدس بني عالي الجودة من ماركت الخديوي"
+    },
+    {
+        name: "فاصوليا بيضاء",
+        price: "22 ج/كجم",
+        image: "images/فاصوليا.jpg",
+        category: "بقوليات",
+        alt: "فاصوليا بيضاء طازجة من ماركت الخديوي"
     },
     {
         name: "كورن فليكس 2",
@@ -101,50 +185,50 @@ let products = [
     {
         name: "جبنة المراعي",
         price: "50 ج/كجم",
-        image: "images/جبنة_المراعي.jpg",
-        category: "البان",
+        image: "images/جبنة المراعي.jpg",
+        category: "ألبان",
         alt: "جبنة المراعي"
     },
     {
         name: "جبنة ثلاجة",
         price: "45 ج/كجم",
-        image: "images/جبنة_ثلاجة.jpg",
-        category: "البان",
+        image: "images/جبنة ثلاجة.jpg",
+        category: "ألبان",
         alt: "جبنة ثلاجة"
     },
     {
         name: "جبنة فيتا",
         price: "60 ج/كجم",
-        image: "images/جبنة_فيتة.jpg",
-        category: "البان",
+        image: "images/جبنة فيتة.jpg",
+        category: "ألبان",
         alt: "جبنة فيتا"
     },
     {
         name: "جبنة فيتا 1",
         price: "65 ج/كجم",
-        image: "images/جبنة_فيتة (2).jpg",
-        category: "البان",
+        image: "images/جبنة فيتة1.jpg",
+        category: "ألبان",
         alt: "جبنة فيتا 1"
     },
     {
         name: "جبنة كريمي",
         price: "70 ج/كجم",
-        image: "images/جبنة_كريمي.jpg",
-        category: "البان",
+        image: "images/جبنة كريمي.jpg",
+        category: "ألبان",
         alt: "جبنة كريمي"
     },
     {
         name: "جبنة موزاريلا",
         price: "80 ج/كجم",
-        image: "images/جبنة_موزاريلا.jpg",
-        category: "البان",
+        image: "images/جبنة موزاريلا.jpg",
+        category: "ألبان",
         alt: "جبنة موزاريلا"
     },
     {
         name: "جبنة رومي",
         price: "70 ج/كجم",
         image: "images/جبنة_رومي.webp",
-        category: "البان",
+        category: "ألبان",
         alt: "جبنة رومي"
     },
     {
@@ -157,8 +241,8 @@ let products = [
     {
         name: "دومتي كريمي",
         price: "55 ج/كجم",
-        image: "images/دومتي_كريمي.jpg",
-        category: "البان",
+        image: "images/دومتي كريمي.jpg",
+        category: "ألبان",
         alt: "دومتي كريمي"
     },
     {
@@ -176,95 +260,67 @@ let products = [
         alt: "كورن فليكس 1"
     },
     {
+        name: "لبن كامل الدسم",
+        price: "15 ج/لتر",
+        image: "images/لبن.jpg",
+        category: "ألبان",
+        alt: "لبن كامل الدسم"
+    },
+    {
+        name: "جبنة بيضاء",
+        price: "50 ج/كجم",
+        image: "images/جبنة_بيضاء.jpg",
+        category: "ألبان",
+        alt: "جبنة بيضاء"
+    },
+    {
         name: "زبادي",
         price: "5 ج/علبة",
-        image: "images/زبادي_المراعي.jpg",
-        category: "البان",
+        image: "images/زبادي.jpg",
+        category: "ألبان",
         alt: "زبادي"
+    },
+    {
+        name: "جبنة رومي",
+        price: "70 ج/كجم",
+        image: "images/جبنة_رومي.jpg",
+        category: "ألبان",
+        alt: "جبنة رومي"
+    },
+    {
+        name: "جبنة شيدر",
+        price: "90 ج/كجم",
+        image: "images/جبنة_شيدر.jpg",
+        category: "ألبان",
+        alt: "جبنة شيدر"
+    },
+    {
+        name: "كريمة لباني",
+        price: "25 ج/علبة",
+        image: "images/كريمة_لباني.jpg",
+        category: "ألبان",
+        alt: "كريمة لباني"
+    },
+    {
+        name: "جبنة موتزاريلا",
+        price: "80 ج/كجم",
+        image: "images/جبنة_موتزاريلا.jpg",
+        category: "ألبان",
+        alt: "جبنة موتزاريلا"
+    },
+    {
+        name: "جبنة فيتا",
+        price: "60 ج/كجم",
+        image: "images/جبنة_فيتا.jpg",
+        category: "ألبان",
+        alt: "جبنة فيتا"
     },
     {
         name: "زبادي يوناني",
         price: "15 ج/علبة",
         image: "images/زبادي_يوناني.jpg",
-        category: "البان",
+        category: "ألبان",
         alt: "زبادي يوناني"
-    },
-    {
-        name: "هوهوز",
-        price: "5 ج/قطعة",
-        image: "images/هوهز.png",
-        category: "حلويات",
-        alt: "كيك رول هوهوز"
-    },
-    {
-        name: "بيبسي",
-        price: "5 ج/علبة",
-        image: "images/ببسي.jpeg",
-        category: "مشروبات",
-        alt: "مشروب بيبسي غازي"
-    },
-    {
-        name: "كرانشي",
-        price: "5 ج/كيس",
-        image: "images/كرانشي.jpeg",
-        category: "مقرمشات",
-        alt: "مقرمشات كرانشي"
-    },
-    {
-        name: "كوكاكولا",
-        price: "5 ج/علبة",
-        image: "images/كولا.png",
-        category: "مشروبات",
-        alt: "مشروب كوكاكولا غازي"
-    },
-    {
-        name: "بيج شيبس بالليمون الحلو",
-        price: "5 ج/كيس",
-        image: "images/بيج_شيبس_لمون_حلو.jpeg",
-        category: "مقرمشات",
-        alt: "بيج شيبس بالليمون الحلو"
-    },
-    {
-        name: "ڤي سوبر صودا كولا",
-        price: "5 ج/علبة",
-        image: "images/7V.jpeg",
-        category: "مشروبات",
-        alt: "ڤي سوبر صودا كولا"
-    },
-    {
-        name: "شيتوس حار نار",
-        price: "5 ج/كيس",
-        image: "images/شيتوس.jpeg",
-        category: "مقرمشات",
-        alt: "شيتوس حار نار"
-    },
-    {
-        name: "شيبسي جبنة",
-        price: "5 ج/كيس",
-        image: "images/شبسي_جبنة.jpeg",
-        category: "مقرمشات",
-        alt: "شيبسي بطعم الجبنة"
-    },
-    {
-        name: "شيبسي طماطم",
-        price: "5 ج/كيس",
-        image: "images/شيبسي_طماطم.jpeg",
-        category: "مقرمشات",
-        alt: "شيبسي بطعم الطماطم"
-    },
-    {
-        name: "مناديل فاميليا تواليت",
-        price: "40 ج/باكت",
-        image: "images/فاميليا.jpeg",
-        category: "منظفات",
-        alt: "مناديل تواليت فاميليا"
-    },
-    {
-        name: "مناديل فاين سحب",
-        price: "18 ج/علبة",
-        image: "images/فاين.jpeg",
-        category: "منظفات",
-        alt: "مناديل وجه فاين"
     }
 ];
 
@@ -301,28 +357,23 @@ function createProductCards(productsArray, page = 1) {
 
     if (paginatedProducts.length === 0) {
         container.innerHTML = '<div class="col-12 text-center py-5"><h4>لا توجد منتجات مطابقة للبحث</h4></div>';
-        document.getElementById('paginationContainer').innerHTML = ''; // إخفاء أزرار التصفح
         return;
     }
 
     paginatedProducts.forEach(product => {
-        const productCard = document.createElement('div');
-        productCard.className = 'col-lg-3 col-md-4 col-sm-6 mb-4';
-        
-        productCard.innerHTML = `
+        const card = `
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4"> <!-- Adjusted column size -->
                 <div class="card h-100">
-                <img src="${product.image}" class="card-img-top product-img" alt="${product.alt}" loading="lazy">
-                <div class="card-body d-flex flex-column">
+                    <img src="${product.image}" class="card-img-top product-img" alt="${product.alt}" loading="lazy">
+                    <div class="card-body">
                         <h3 class="card-title h5">${product.name}</h3>
-                    <p class="text-success mt-2"><strong>السعر:</strong> ${product.price}</p>
-                    <button class="btn btn-primary btn-sm mt-auto" onclick='addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')}, event)'>
-                        <i class="fas fa-cart-plus me-1"></i> إضافة إلى السلة
-                    </button>
+                        <p class="text-success"><strong>السعر:</strong> ${product.price}</p>
+                        <button class="btn btn-primary btn-sm" onclick='addToCart(${JSON.stringify(product)})'>إضافة إلى السلة</button>
+                    </div>
                 </div>
             </div>
         `;
-        
-        container.appendChild(productCard);
+        container.innerHTML += card;
     });
 
     createPagination(productsArray.length, itemsPerPage, page);
@@ -368,36 +419,12 @@ function updateURL(searchTerm) {
     document.title = title;
 }
 
-// إعادة تفعيل دالة تصفية المنتجات حسب الفئة لتعمل مع الأزرار الحالية
+// دالة لتصفية المنتجات حسب الفئة
 function filterByCategory(category) {
-    console.log(`تصفية المنتجات حسب الفئة: ${category}`);
-    
-    // إضافة الفئة النشطة للزر المختار وإزالتها من باقي الأزرار
-    const allButtons = document.querySelectorAll('.categories .btn');
-    allButtons.forEach(button => {
-        if (button.textContent === category || (button.textContent === 'الكل' && category === 'all')) {
-            button.classList.remove('btn-outline-primary');
-            button.classList.add('btn-primary');
-        } else {
-            button.classList.remove('btn-primary');
-            button.classList.add('btn-outline-primary');
-        }
-    });
-    
-    // تصفية المنتجات حسب الفئة
     const filteredProducts = category === 'all' 
         ? products 
         : products.filter(product => product.category === category);
-    
-    // طباعة عدد المنتجات للتأكد من التصفية
-    console.log(`تم العثور على ${filteredProducts.length} منتج`);
-    
-    // عرض المنتجات المصفاة في الصفحة
-    createProductCards(filteredProducts, 1);
-    
-    // إعادة تعيين شريط البحث
-    document.getElementById('searchInput').value = '';
-    updateURL(null);
+    createProductCards(filteredProducts);
 }
 
 // دالة لإنشاء دلافين إضافية بشكل عشوائي
@@ -487,19 +514,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get('search');
     
-    // استرجاع بيانات المنتجات المحفوظة (إذا وجدت)
-    const savedProducts = localStorage.getItem('productsData');
-    if (savedProducts) {
-        try {
-            // استبدال بيانات المنتجات بالبيانات المحفوظة
-            products = JSON.parse(savedProducts);
-            console.log('تم تحميل بيانات المنتجات من التخزين المحلي');
-        } catch (error) {
-            console.error('خطأ في تحميل بيانات المنتجات:', error);
-        }
-    }
-    
-    // عرض المنتجات بعد تحميل البيانات المحفوظة
     if (searchParam) {
         document.getElementById('searchInput').value = searchParam;
         const filtered = products.filter(product => 
@@ -519,66 +533,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // بدء حركة الدلافين بعد تأخير
     setTimeout(createRandomDolphins, 5000);
-
-    // تحسين انتقال الصفحة عند النقر على روابط القائمة
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (this.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                    
-                    // إغلاق القائمة في الشاشات الصغيرة
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                        bsCollapse.hide();
-                    }
-                }
-            }
-        });
-    });
 });
 
 const cart = [];
 
-function addToCart(product, event) {
+function addToCart(product) {
     const existingProduct = cart.find(item => item.name === product.name);
     if (existingProduct) {
         existingProduct.quantity += 1;
     } else {
-        const isDairy = product.category === "البان";
+        const isCheese = product.category === "ألبان" && product.name.includes("جبنة");
         cart.push({ 
             ...product, 
             quantity: 1, 
-            // Add default weight only for dairy products
-            weight: isDairy ? "1 كجم" : undefined 
+            weight: isCheese ? "1 كجم" : undefined // Default weight for cheese
         });
     }
     updateCartUI();
-    
-    // عرض تأثير إضافة المنتج للسلة
-    if (event) {
-        showAddToCartAnimation(product.image, event);
-    } else {
-        // إذا لم يتم تمرير حدث، استخدم موقع زر السلة كنقطة بداية
-        const cartButton = document.querySelector('.cart-toggle');
-        if (cartButton) {
-            const rect = cartButton.getBoundingClientRect();
-            const fakeEvent = {
-                clientX: rect.left + rect.width / 2,
-                clientY: rect.top + rect.height / 2
-            };
-            showAddToCartAnimation(product.image, fakeEvent);
-        }
-    }
-    
+    showAddToCartAnimation(product.image);
     showNotification(`${product.name} تمت إضافته إلى السلة.`);
 }
 
@@ -612,101 +584,38 @@ function updateCartUI() {
     if (cart.length === 0) {
         cartContainer.innerHTML = '<p class="text-center">سلة المشتريات فارغة</p>';
         cartCount.textContent = '0';
-        document.getElementById('cartTotal').textContent = '0.00'; // Reset total
         return;
     }
 
-    let totalCartPrice = 0;
     cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
 
     cart.forEach(item => {
-        const isDairy = item.category === "البان";
-        let displayPrice = item.price; // Default display price
-        let itemTotalPrice = 0;
-        let weightSelectorHTML = '';
-
-        // Regex to extract base price and unit (e.g., from "50 ج/كجم" or "20 ج/لتر")
-        const priceMatch = String(item.price).match(/^([0-9.]+)\s*ج\/(كجم|لتر|قطعة|علبة)/);
-        let basePricePerUnit = 0;
-        
-        if (priceMatch && priceMatch[1]) {
-            basePricePerUnit = parseFloat(priceMatch[1]);
-        }
-
-        if (isDairy && item.weight && basePricePerUnit > 0) {
-            // Determine weight factor based on selection
-            let weightFactor = 1; // Default to 1 kg
-            if (item.weight === "ربع كجم") weightFactor = 0.25;
-            else if (item.weight === "نصف كجم") weightFactor = 0.5;
-            else if (item.weight === "ثمن كجم") weightFactor = 0.125; // Added 1/8 kg
-
-            const calculatedItemPrice = basePricePerUnit * weightFactor;
-            itemTotalPrice = calculatedItemPrice * item.quantity;
-            displayPrice = calculatedItemPrice.toFixed(2) + ' ج'; // Price for the selected weight
-
-            weightSelectorHTML = `
-                <select class="form-select form-select-sm mt-1" onchange="updateWeight('${item.name}', this.value)">
-                    <option value="ثمن كجم" ${item.weight === "ثمن كجم" ? "selected" : ""}>ثمن كجم</option>
-                    <option value="ربع كجم" ${item.weight === "ربع كجم" ? "selected" : ""}>ربع كجم</option>
-                    <option value="نصف كجم" ${item.weight === "نصف كجم" ? "selected" : ""}>نصف كجم</option>
-                    <option value="1 كجم" ${item.weight === "1 كجم" ? "selected" : ""}>1 كجم</option>
-                </select>
-            `;
-        } else if (basePricePerUnit > 0) {
-             // For non-dairy or items without weight, use base price * quantity
-             itemTotalPrice = basePricePerUnit * item.quantity;
-        } else {
-            // Fallback if price format is unexpected - try to parse any number
-            const fallbackPrice = parseFloat(String(item.price).replace(/[^0-9.]/g, '')) || 0;
-            itemTotalPrice = fallbackPrice * item.quantity;
-        }
-
-        totalCartPrice += itemTotalPrice;
+        const isCheese = item.category === "ألبان" && item.name.includes("جبنة");
+        const pricePerKg = parseFloat(item.price.split(' ')[0]); // Extract price as a number
+        const weightFactor = item.weight === "ربع كجم" ? 0.25 : item.weight === "نصف كجم" ? 0.5 : 1;
+        const calculatedPrice = isCheese ? (pricePerKg * weightFactor).toFixed(2) : item.price;
 
         const cartItem = `
             <div class="cart-item">
                 <img src="${item.image}" alt="${item.alt}">
-                <div class="cart-item-details">
-                    <p class="cart-item-name">${item.name}</p>
-                    <p class="cart-item-quantity">الكمية: 
-                        <button class="btn btn-sm btn-outline-secondary quantity-btn" onclick="decreaseQuantity('${item.name}')">-</button>
-                        ${item.quantity}
-                        <button class="btn btn-sm btn-outline-secondary quantity-btn" onclick="increaseQuantity('${item.name}')">+</button>
-                    </p>
-                    ${weightSelectorHTML}
-                    <p class="cart-item-price mt-1">السعر: ${displayPrice}</p>
-                    <textarea class="form-control form-control-sm mt-1" placeholder="أضف ملاحظاتك..." oninput="updateNotes('${item.name}', this.value)">${item.note || ''}</textarea>
+                <div>
+                    <p>${item.name}</p>
+                    <p>الكمية: ${item.quantity}</p>
+                    ${isCheese ? `
+                        <select class="form-select mt-2" onchange="updateWeight('${item.name}', this.value)">
+                            <option value="ربع كجم" ${item.weight === "ربع كجم" ? "selected" : ""}>ربع كجم</option>
+                            <option value="نصف كجم" ${item.weight === "نصف كجم" ? "selected" : ""}>نصف كجم</option>
+                            <option value="1 كجم" ${item.weight === "1 كجم" ? "selected" : ""}>1 كجم</option>
+                        </select>
+                    ` : ''}
+                    <p class="mt-2">السعر: ${calculatedPrice} ج</p>
+                    <textarea class="form-control mt-2" placeholder="أضف ملاحظاتك..." data-product="${item.name}" oninput="updateNotes('${item.name}', this.value)"></textarea>
                 </div>
-                <button class="btn btn-sm btn-danger remove-btn" onclick="removeFromCart('${item.name}')"><i class="fas fa-times"></i></button>
+                <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.name}')">إزالة</button>
             </div>
         `;
         cartContainer.innerHTML += cartItem;
     });
-
-    // Update total price display
-    document.getElementById('cartTotal').textContent = totalCartPrice.toFixed(2);
-}
-
-function increaseQuantity(productName) {
-    const product = cart.find(item => item.name === productName);
-    if (product) {
-        product.quantity += 1;
-        updateCartUI();
-    }
-}
-
-function decreaseQuantity(productName) {
-    const product = cart.find(item => item.name === productName);
-    if (product) {
-        if (product.quantity > 1) {
-            product.quantity -= 1;
-        } else {
-            // If quantity is 1, remove the item
-            removeFromCart(productName);
-            return; // Exit early as removeFromCart calls updateCartUI
-        }
-        updateCartUI();
-    }
 }
 
 function updateWeight(productName, weight) {
@@ -724,50 +633,19 @@ function updateNotes(productName, note) {
     }
 }
 
-function showAddToCartAnimation(imageSrc, event) {
-    // إنشاء عنصر الصورة للتأثير
+function showAddToCartAnimation(imageSrc) {
     const animationElement = document.createElement('img');
     animationElement.src = imageSrc;
     animationElement.className = 'add-to-cart-animation';
 
-    // تعيين موقع بداية التأثير
-    const cartButton = document.querySelector('.cart-toggle');
-    const cartRect = cartButton.getBoundingClientRect();
-    const targetX = cartRect.left + cartRect.width / 2;
-    const targetY = cartRect.top + cartRect.height / 2;
-    
-    if (event) {
+    // Use event parameter explicitly
+    document.addEventListener('click', (event) => {
         animationElement.style.top = `${event.clientY}px`;
         animationElement.style.left = `${event.clientX}px`;
-    } else {
-        // إذا لم يكن هناك حدث، استخدم منتصف الشاشة
-        animationElement.style.top = '50%';
-        animationElement.style.left = '50%';
-    }
-    
-    // تعديل النمط لتصل للهدف
-    document.head.insertAdjacentHTML('beforeend', `
-        <style>
-            @keyframes fly-to-cart {
-                0% {
-                    transform: scale(1) translate(0, 0);
-                    opacity: 1;
-                }
-                100% {
-                    transform: scale(0.5) translate(
-                        ${(targetX - parseInt(animationElement.style.left)) / 2}px, 
-                        ${(targetY - parseInt(animationElement.style.top)) / 2}px
-                    );
-                    opacity: 0;
-                }
-            }
-        </style>
-    `);
-    
-    // إضافة عنصر التأثير للصفحة
+    });
+
     document.body.appendChild(animationElement);
 
-    // إزالة العنصر بعد انتهاء التأثير
     animationElement.addEventListener('animationend', () => {
         animationElement.remove();
     });
