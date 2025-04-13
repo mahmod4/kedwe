@@ -13,8 +13,8 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="الخديوي - سوبر ماركت شامل في مصر">
     <meta property="og:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta property="og:image" content="https://elkedawe.netlify.app/images/logo.png">
-    <meta property="og:url" content="https://elkedawe.netlify.app/">
+    <meta property="og:image" content="https://alkhedewy.com/images/logo.png">
+    <meta property="og:url" content="https://alkhedewy.com">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_EG">
     
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="الخديوي - سوبر ماركت شامل في مصر">
     <meta name="twitter:description" content="أفضل المنتجات الطازجة بأسعار مميزة وتوصيل سريع في جميع أنحاء مصر">
-    <meta name="twitter:image" content="https://elkedawe.netlify.app/images/logo.png">
+    <meta name="twitter:image" content="https://alkhedewy.com/images/logo.png">
     
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -44,16 +44,9 @@
     <!-- سلة المشتريات -->
     <div class="cart-container" id="cartContainer">
         <div class="cart-header">سلة المشتريات</div>
-        <div class="cart-items" id="cartItems">
-             <!-- Cart items will be loaded here -->
-        </div>
+        <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
-            <div class="cart-total mb-2">
-                <strong>الإجمالي:</strong> <span id="cartTotal">0.00</span> ج
-            </div>
-            <button class="btn btn-success w-100" onclick="checkout()">
-                <i class="fab fa-whatsapp"></i> إتمام الشراء عبر واتساب
-            </button>
+            <button onclick="checkout()">إتمام الشراء</button>
         </div>
     </div>
 
@@ -83,7 +76,6 @@
                     <li class="nav-item"><a class="nav-link" href="#products">المنتجات</a></li>
                     <li class="nav-item"><a class="nav-link" href="#special-offers">العروض الخاصة</a></li>
                     <li class="nav-item"><a class="nav-link" href="#location">موقعنا</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">تسجيل الدخول <i class="fas fa-user-lock"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -118,33 +110,34 @@
         <section id="products" class="py-5">
             <div class="container">
                 <h1 class="text-center mb-4">الخديوي - سوبر ماركت شامل</h1>
-                <h2 class="text-center mb-4">المنتجات المتاحة</h2>
-                <!-- قائمة الفئات -->
-                <div class="categories mb-4 text-center">
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('all')">الكل</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('بقوليات')">بقوليات</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('زيوت')">زيوت</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('البان')">البان</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('مشروبات')">مشروبات</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('بقالة')">بقالة</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('منتجات طبيعية')">منتجات طبيعية</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('حلويات')">حلويات</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('خضروات')">خضروات</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('مقرمشات')">مقرمشات</button>
-                    <button class="btn btn-outline-primary mx-1" onclick="filterByCategory('منظفات')">منظفات</button>
+                <h1 class="text-center mb-4">🛍️ منتجاتنا</h1>
+                <div id="products"></div>
 
-                </div>
-                <div class="row" id="productsContainer">
-                    <!-- المنتجات ستضاف هنا عبر JavaScript -->
-                </div>
+                <script>
+                  fetch("http://localhost:1337/api/products")
+                    .then(response => response.json())
+                    .then(data => {
+                      const container = document.getElementById("products");
+                      data.data.forEach(product => {
+                        const item = document.createElement("div");
+                        item.innerHTML = `
+                          <h2>${product.name}</h2>
+                          <p>💰 السعر: ${product.prise} ريال</p>
+                          <p>📦 الفئة: ${product.category}</p>
+                          <hr />
+                        `;
+                        container.appendChild(item);
+                      });
+                    })
+                    .catch(err => {
+                      console.error("🚨 في مشكلة في الاتصال بـ Strapi:", err);
+                    });
+                </script>
                 <!-- مساحة إعلانية بين المنتجات -->
                 <div class="ad-space my-4 text-center">
                     <a href="https://example.com" target="_blank" rel="noopener noreferrer">
                         <img src="images/ads/ad-middle.jpg" alt="إعلان بين المنتجات" class="img-fluid rounded">
                     </a>
-                </div>
-                <div class="text-center mt-4" id="paginationContainer">
-                    <!-- أزرار التصفح ستضاف هنا -->
                 </div>
             </div>
         </section>
@@ -208,7 +201,7 @@
                     <div class="col-md-6">
                         <div class="map-container shadow rounded">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.3686863897296!2d31.1006206!3d29.0650348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145991ecd311bfcb%3A0x96be7ff98f510bfc!2z2KfZhNiu2K_ZitmI2Yo!5e0!3m2!1sar!2seg!4v1715171232387!5m2!1sar!2seg"
+                                src="https://maps.app.goo.gl/bBEDm4wSDmnGn4jf8"
                                 width="100%" 
                                 height="400" 
                                 style="border:0;" 
@@ -217,7 +210,7 @@
                                 title="موقع سوبر ماركت الخديوي على خرائط جوجل">
                             </iframe>
                             <p class="text-center mt-2">
-                                <a href="https://goo.gl/maps/Wqv77WLCJSdEWQjy7" target="_blank" rel="noopener noreferrer">
+                                <a href="https://maps.app.goo.gl/bBEDm4wSDmnGn4jf8" target="_blank" rel="noopener noreferrer">
                                     افتح الموقع في خرائط جوجل
                                 </a>
                             </p>
@@ -244,25 +237,12 @@
                 <a href="https://www.facebook.com/Al.Khediwe.Market/?locale=ar_AR" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
                 <a href="https://wa.me/201003316735" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <div class="copyright mt-2">
-                <p>جميع الحقوق محفوظة &copy; <span id="year"></span> ماركت الخديوي | <a href="login.html" class="admin-link">إدارة الموقع</a></p>
-            </div>
+            <!-- Removed "جميع الحقوق محفوظة" section -->
         </div>
     </footer>
 
     <!-- Notification container -->
     <div id="notificationContainer" class="notification-container"></div>
-
-    <!-- مراقبة تغييرات البيانات من لوحة التحكم -->
-    <script>
-        // مراقبة تغييرات localStorage للمنتجات
-        window.addEventListener('storage', function(e) {
-            if (e.key === 'productsData' && e.newValue) {
-                console.log('تم تحديث بيانات المنتجات');
-                location.reload(); // إعادة تحميل الصفحة لعكس التغييرات
-            }
-        });
-    </script>
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
