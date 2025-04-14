@@ -796,6 +796,6 @@ function checkout() {
     });
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/201003316735?text=${encodedMessage}`;
+    const whatsappURL = `https://wa.me/201234567890?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
