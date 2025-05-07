@@ -1,0 +1,303 @@
+[
+    {
+        "id": 1,
+        "name": "فاين مناديل",
+        "price": 35,
+        "image": "images/فاين.jpeg",
+        "category": "grocery"
+    },
+    {
+        "id": 2,
+        "name": "فاميليا شكولاتة",
+        "price": 42,
+        "image": "images/فاميليا.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 3,
+        "name": "سفن أب",
+        "price": 15,
+        "image": "images/7V.jpeg",
+        "category": "beverages"
+    },
+    {
+        "id": 4,
+        "name": "كوكاكولا",
+        "price": 18,
+        "image": "images/كولا.png",
+        "category": "beverages"
+    },
+    {
+        "id": 5,
+        "name": "بيبسي",
+        "price": 16,
+        "image": "images/ببسي.jpeg",
+        "category": "beverages"
+    },
+    {
+        "id": 6,
+        "name": "ريد بل",
+        "price": 45,
+        "image": "images/ريدبل.jpeg",
+        "category": "beverages"
+    },
+    {
+        "id": 7,
+        "name": "ستينج مشروب الطاقة",
+        "price": 32,
+        "image": "images/ستينج.jpeg",
+        "category": "beverages"
+    },
+    {
+        "id": 8,
+        "name": "شيتوس",
+        "price": 12,
+        "image": "images/شيتوس.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 9,
+        "name": "شيبسي بطعم الجبنة",
+        "price": 12,
+        "image": "images/شبسي_جبنة.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 10,
+        "name": "شيبسي بطعم الطماطم",
+        "price": 12,
+        "image": "images/شيبسي_طماطم.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 11,
+        "name": "بيج شيبس ليمون حلو",
+        "price": 15,
+        "image": "images/بيج_شيبس_لمون_حلو.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 12,
+        "name": "كرانشي",
+        "price": 12,
+        "image": "images/كرانشي.jpeg",
+        "category": "snacks"
+    },
+    {
+        "id": 13,
+        "name": "هوهوز",
+        "price": 20,
+        "image": "images/هوهز.png",
+        "category": "snacks"
+    },
+    {
+        "id": 14,
+        "name": "جبنة دومتي كريمي",
+        "price": 65,
+        "image": "images/دومتي_كريمي.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 15,
+        "name": "جبنة كريمي",
+        "price": 58,
+        "image": "images/جبنة_كريمي.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 16,
+        "name": "جبنة فيتا",
+        "price": 75,
+        "image": "images/جبنة_فيتة.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 17,
+        "name": "جبنة فيتا",
+        "price": 80,
+        "image": "images/جبنة_فيتة (2).jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 18,
+        "name": "دقيق",
+        "price": 42,
+        "image": "images/دقيق.jpg",
+        "category": "grocery"
+    },
+    {
+        "id": 19,
+        "name": "عسل نحل",
+        "price": 150,
+        "image": "images/عسل_نحل.jpg",
+        "category": "grocery"
+    },
+    {
+        "id": 20,
+        "name": "جبنة موزاريلا",
+        "price": 85,
+        "image": "images/جبنة_موزاريلا.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 21,
+        "name": "جبنة المراعي",
+        "price": 70,
+        "image": "images/جبنة_المراعي.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 22,
+        "name": "جبنة ثلاجة",
+        "price": 65,
+        "image": "images/جبنة_ثلاجة.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 23,
+        "name": "زبادي يوناني",
+        "price": 32,
+        "image": "images/زبادي_يوناني.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 24,
+        "name": "زبادي المراعي",
+        "price": 28,
+        "image": "images/زبادي_المراعي.jpg",
+        "category": "dairy"
+    },
+    {
+        "id": 25,
+        "name": "جبنة رومي",
+        "price": 120,
+        "image": "images/جبنة_رومي.webp",
+        "category": "dairy"
+    },
+    {
+        "id": 26,
+        "name": "ماشروم",
+        "price": 45,
+        "image": "images/ماشروم.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 27,
+        "name": "تونة",
+        "price": 38,
+        "image": "images/تونة.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 28,
+        "name": "مربى تين",
+        "price": 55,
+        "image": "images/مربي_تين.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 29,
+        "name": "مربى مشمش",
+        "price": 50,
+        "image": "images/مربي_مشمش.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 30,
+        "name": "صوص",
+        "price": 25,
+        "image": "images/صوص.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 31,
+        "name": "كورن فليكس",
+        "price": 60,
+        "image": "images/كورن_فليكس.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 32,
+        "name": "جلي",
+        "price": 18,
+        "image": "images/جلي.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 33,
+        "name": "كورن فليكس شوكولاتة",
+        "price": 65,
+        "image": "images/كورن_فليكس1.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 34,
+        "name": "كورن فليكس فواكه",
+        "price": 62,
+        "image": "images/كورن_فليكس2.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 35,
+        "name": "زيت طبخ",
+        "price": 85,
+        "image": "images/زيت.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 36,
+        "name": "زيت زيتون",
+        "price": 120,
+        "image": "images/زيت2.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 37,
+        "name": "مكرونة",
+        "price": 25,
+        "image": "images/مكرونة.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 38,
+        "name": "مكرونة سباغيتي",
+        "price": 28,
+        "image": "images/مكرونة2.webp",
+        "category": "grocery"
+    },
+    {
+        "id": 39,
+        "name": "عصير برتقال",
+        "price": 30,
+        "image": "images/عصير_برتقال.jpg",
+        "category": "beverages"
+    },
+    {
+        "id": 40,
+        "name": "سكر",
+        "price": 32,
+        "image": "images/سكر.jpg",
+        "category": "grocery"
+    },
+    {
+        "id": 41,
+        "name": "عدس",
+        "price": 45,
+        "image": "images/عدس.jpg",
+        "category": "grocery"
+    },
+    {
+        "id": 42,
+        "name": "أرز الضحى",
+        "price": 65,
+        "image": "images/رز_الضحي.jpg",
+        "category": "grocery"
+    },
+    {
+        "id": 43,
+        "name": "شاي",
+        "price": 55,
+        "image": "images/شاي.jpg",
+        "category": "grocery"
+    }
+] 
