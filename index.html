@@ -67,6 +67,21 @@
         </nav>
         <div class="header-actions">
             <a href="#" id="login-button" class="btn btn-sm"><i class="fas fa-user"></i> تسجيل الدخول</a>
+            <!-- حاوية قائمة المستخدم (ستظهر بعد تسجيل الدخول) -->
+            <div id="user-menu-container" class="user-menu-container" style="display: none;">
+                <div class="user-menu-toggle">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="user-name">المستخدم</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="user-menu">
+                    <ul>
+                        <li><a href="#profile"><i class="fas fa-id-card"></i> الملف الشخصي</a></li>
+                        <li><a href="#orders"><i class="fas fa-shopping-bag"></i> طلباتي</a></li>
+                        <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="cart">
                 <a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
             </div>
