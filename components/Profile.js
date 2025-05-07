@@ -32,7 +32,7 @@ async function updateAuthUI() {
 
     // عناصر واجهة المستخدم
     const loginButton = document.getElementById('login-button');
-    const userMenuContainer = document.getElementById('user-menu-container') || createUserMenuContainer();
+    const userMenuContainer = document.getElementById('user-menu-container');
 
     if (error || !user) {
       // المستخدم غير مسجل الدخول
@@ -63,6 +63,32 @@ async function updateAuthUI() {
       const userNameElement = userMenuContainer.querySelector('.user-name');
       if (userNameElement) {
         userNameElement.textContent = profile?.full_name || user.email;
+        console.log('تم تحديث اسم المستخدم:', profile?.full_name || user.email);
+      }
+      
+      // إضافة مستمع حدث لزر تسجيل الخروج إذا لم يكن موجودًا
+      const logoutButton = userMenuContainer.querySelector('#logout-button');
+      if (logoutButton && !logoutButton._hasEventListener) {
+        logoutButton.addEventListener('click', async (e) => {
+          e.preventDefault();
+          // استدعاء دالة تسجيل الخروج من Auth.js
+          const { signOut } = await import('./Auth.js');
+          await signOut();
+          updateAuthUI();
+        });
+        logoutButton._hasEventListener = true;
+      }
+
+      // إضافة مستمع حدث لفتح/إغلاق قائمة المستخدم إذا لم يكن موجودًا
+      const menuToggle = userMenuContainer.querySelector('.user-menu-toggle');
+      if (menuToggle && !menuToggle._hasEventListener) {
+        menuToggle.addEventListener('click', () => {
+          const menu = userMenuContainer.querySelector('.user-menu');
+          if (menu) {
+            menu.classList.toggle('active');
+          }
+        });
+        menuToggle._hasEventListener = true;
       }
     }
 
