@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+
+
+
+
+
+    
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>متجر الخديوي - Al Khediwe Market</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-supabase.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- تحسين الموقع للهواتف المحمولة -->
+    <!--
+    تم استخدام الأكواد التالية لتحسين تجربة المستخدم على الهواتف المحمولة:
+    
+    1. meta name="viewport": يضبط عرض الصفحة لتناسب عرض الشاشة وإلغاء إمكانية التكبير
+       - width=device-width: جعل عرض الصفحة يساوي عرض الجهاز
+       - initial-scale=1.0: ضبط مستوى التكبير الأولي
+       - maximum-scale=1.0: منع المستخدم من التكبير (تحسين التجربة في التطبيقات)
+       - user-scalable=no: إلغاء إمكانية تغيير التكبير
+    
+    2. meta name="theme-color": تغيير لون شريط المتصفح على أجهزة أندرويد
+    
+    3. meta name="apple-mobile-web-app-status-bar-style": تغيير نمط شريط الحالة على أجهزة آيفون
+    
+    4. meta name="apple-mobile-web-app-capable" و meta name="mobile-web-app-capable":
+       تمكين عرض الموقع كتطبيق كامل الشاشة عند إضافته للشاشة الرئيسية
+    
+    5. تم استخدام link rel="dns-prefetch" لتسريع تحميل الموارد الخارجية مثل مكتبة Font Awesome
+    -->
+    <meta name="theme-color" content="#1a5f7a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1a5f7a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- تحسين الأداء -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- إضافة رمز الموقع المختصر (favicon) -->
+    <link rel="icon" type="image/png" href="images/logo22.png">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/logo22.png" alt="شعار الخديوي" class="logo" width="60" height="60">
+            <h1>متجر الخديوي</h1>
+        </div>
+        <div class="main-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="main-menu" id="main-menu">
+            <ul>
+                <li><a href="#home" class="menu-item active">الرئيسية</a></li>
+                <li><a href="#products" class="menu-item">المنتجات</a></li>
+                <li><a href="#offers" class="menu-item">العروض</a></li>
+                <li><a href="#about" class="menu-item">عن المتجر</a></li>
+                <li><a href="#contact" class="menu-item">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="#" id="login-button" class="btn btn-sm"><i class="fas fa-user"></i> تسجيل الدخول</a>
+            <div class="cart">
+                <a href="#" id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>أهلاً بكم في متجر الخديوي</h2>
+            <p>أفضل المنتجات بأسعار مناسبة</p>
+            <a href="#products" class="btn">تسوق الآن <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <section id="categories" class="categories">
+        <h2>الأقسام <i class="fas fa-th-large"></i></h2>
+        <div class="category-container">
+            <div class="category">
+                <img src="images/زبادي_المراعي.jpg" alt="منتجات الألبان" width="250" height="200" loading="lazy">
+                <h3>منتجات الألبان</h3>
+            </div>
+            <div class="category">
+                <img src="images/ببسي.jpeg" alt="مشروبات" width="250" height="200" loading="lazy">
+                <h3>المشروبات</h3>
+            </div>
+            <div class="category">
+                <img src="images/شيتوس.jpeg" alt="وجبات خفيفة" width="250" height="200" loading="lazy">
+                <h3>وجبات خفيفة</h3>
+            </div>
+            <div class="category">
+                <img src="images/مكرونة.webp" alt="مواد غذائية" width="250" height="200" loading="lazy">
+                <h3>مواد غذائية</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <h2>منتجاتنا <i class="fas fa-shopping-basket"></i></h2>
+        <div class="filter">
+            <select id="category-filter" aria-label="تصنيف المنتجات">
+                <option value="all">جميع المنتجات</option>
+                <option value="dairy">منتجات الألبان</option>
+                <option value="beverages">المشروبات</option>
+                <option value="snacks">وجبات خفيفة</option>
+                <option value="grocery">مواد غذائية</option>
+            </select>
+            <input type="text" id="search-products" placeholder="ابحث عن منتج..." aria-label="بحث عن منتج">
+        </div>
+        
+        <div class="product-container" id="product-container">
+            <!-- Products will be loaded dynamically with JavaScript -->
+            <div class="loading-spinner" id="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>جاري تحميل المنتجات...</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="offers" class="offers">
+        <h2>العروض المميزة <i class="fas fa-percentage"></i></h2>
+        <div class="offers-container">
+            <div class="offer">
+                <img src="images/زيت.webp" alt="عرض زيت" width="120" height="120" loading="lazy">
+                <div class="offer-details">
+                    <h3>خصم 15% على الزيوت</h3>
+                    <p>العرض ساري حتى نهاية الشهر</p>
+                </div>
+            </div>
+            <div class="offer">
+                <img src="images/ببسي.jpeg" alt="عرض مشروبات" width="120" height="120" loading="lazy">
+                <div class="offer-details">
+                    <h3>اشتري 2 واحصل على 1 مجاناً</h3>
+                    <p>على جميع المشروبات الغازية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم رفع الصور (مخفي افتراضياً - سيظهر فقط للمسؤولين) -->
+    <section id="admin" class="admin" style="display: none;">
+        <h2>لوحة التحكم <i class="fas fa-cogs"></i></h2>
+        <div class="admin-container">
+            <div class="admin-panel">
+                <h3>إدارة المنتجات</h3>
+                <div id="image-upload-container"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>عن متجر الخديوي <i class="fas fa-store"></i></h2>
+        <div class="about-content">
+            <img src="images/logo22.png" alt="شعار الخديوي" class="about-logo" width="150" height="150">
+            <div class="about-text">
+                <p>متجر الخديوي هو سوبر ماركت رائد يقدم أفضل المنتجات والخدمات لعملائنا الكرام. نحن ملتزمون بتوفير منتجات عالية الجودة بأسعار مناسبة.</p>
+                <p>تأسس متجرنا بهدف تلبية احتياجات المستهلكين وتوفير تجربة تسوق مميزة. نعمل دائماً على توفير منتجات طازجة ومتنوعة لتلبية جميع الاحتياجات.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>اتصل بنا <i class="fas fa-envelope"></i></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>العنوان: بني سويف تقاطع العسكرية - شارع الروضة - برج الخديوي</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>الهاتف: <a href="tel:01234567890" class="phone-link">01234567890</a> - <a href="tel:01234567891" class="phone-link">01234567891</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>البريد الإلكتروني: <a href="mailto:contact@example.com">contact@example.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-facebook"></i>
+                    <p><a href="#" target="_blank" rel="noopener">صفحتنا على فيسبوك</a></p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="الاسم" aria-label="الاسم">
+                <input type="email" placeholder="البريد الإلكتروني" aria-label="البريد الإلكتروني">
+                <textarea placeholder="رسالتك" aria-label="رسالتك"></textarea>
+                <button type="submit" class="btn">إرسال <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" aria-label="إغلاق">&times;</span>
+            <h2>سلة التسوق <i class="fas fa-shopping-cart"></i></h2>
+            <div id="cart-items">
+                <!-- Cart items will be added dynamically -->
+            </div>
+            <div class="cart-total">
+                <p>المجموع: <span id="total-price">0</span> ج.م</p>
+            </div>
+            <button id="checkout" class="btn">إتمام الشراء <i class="fas fa-check"></i></button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" aria-label="إغلاق">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" data-tab="login">تسجيل الدخول</button>
+                <button class="auth-tab-btn" data-tab="signup">إنشاء حساب</button>
+            </div>
+            
+            <!-- نموذج تسجيل الدخول -->
+            <div class="auth-tab-content active" id="login-tab">
+                <form class="auth-form" id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">كلمة المرور</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">تسجيل الدخول <i class="fas fa-sign-in-alt"></i></button>
+                </form>
+            </div>
+            
+            <!-- نموذج إنشاء حساب جديد -->
+            <div class="auth-tab-content" id="signup-tab">
+                <form class="auth-form" id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">الاسم الكامل</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">البريد الإلكتروني</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">كلمة المرور</label>
+                        <input type="password" id="signup-password" required minlength="6">
+                    </div>
+                    <button type="submit">إنشاء حساب <i class="fas fa-user-plus"></i></button>
+                </form>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="auth-form-container" id="login-form">
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label for="login-email">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">كلمة المرور</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group">
+                        <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                    </div>
+                    <button type="submit" class="btn btn-auth">تسجيل الدخول</button>
+                </form>
+            </div>
+            
+            <!-- Signup Form -->
+            <div class="auth-form-container" id="signup-form" style="display: none;">
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">الاسم</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">البريد الإلكتروني</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">رقم الهاتف</label>
+                        <input type="tel" id="signup-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">كلمة المرور</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password-confirm">تأكيد كلمة المرور</label>
+                        <input type="password" id="signup-password-confirm" required>
+                    </div>
+                    <button type="submit" class="btn btn-auth">إنشاء حساب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo22.png" alt="شعار الخديوي" class="logo" width="80" height="80">
+                <h3>متجر الخديوي</h3>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#categories"><i class="fas fa-th-large"></i> الأقسام</a></li>
+                    <li><a href="#offers"><i class="fas fa-percentage"></i> العروض</a></li>
+                    <li><a href="#about"><i class="fas fa-store"></i> عن المتجر</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>اتصل بنا</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:01234567890" class="phone-link">01234567890</a> - <a href="tel:01234567891" class="phone-link">01234567891</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@example.com">contact@example.com</a></p>
+                <div class="social-media">
+                    <a href="#" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="انستجرام"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 متجر الخديوي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- إضافة ملف التكامل مع Supabase -->
+    <script type="module" src="supabase-integration.js"></script>
+</body>
+</html>

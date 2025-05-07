@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "products"
+    label: "المنتجات"
+    folder: "products"            # جذر المشروع (حيث يوجد products.json)
+    create: true
+    format: "json"
+    extension: "json"
+    fields:
+      - {label: "الاسم", name: "name", widget: "string"}
+      - {label: "السعر", name: "price", widget: "string"}
+      - {label: "الصورة", name: "image", widget: "image"}
+      - {label: "الفئة", name: "category", widget: "string"}
+      - {label: "النص البديل", name: "alt", widget: "string"}
