@@ -1,0 +1,21 @@
+{
+  "name": "matgar-elkhedewi",
+  "version": "1.0.0",
+  "description": "متجر الخديوي - متجر إلكتروني عربي متكامل مع Supabase",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s .",
+    "dev": "serve -s ."
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "serve": "^14.2.1"
+  },
+  "keywords": [
+    "ecommerce",
+    "supabase",
+    "arabic"
+  ],
+  "author": "",
+  "license": "MIT"
+}
